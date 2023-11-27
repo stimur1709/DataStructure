@@ -22,13 +22,13 @@ class SearchValueTest {
 
     @Test
     @DisplayName("testSearchValue")
-    void testSearchValue() {
+    void testSearchValue() throws Exception {
         int bSearch = search(array, 156300, binarySearch);
-        int brSearch = search(array, 1563, binaryRecursiveSearch);
+        int brSearch = search(array, 156300, binaryRecursiveSearch);
         Assertions.assertEquals(brSearch, bSearch);
     }
 
-    public int search(int[] array, int key, SearchValue searchValue) {
+    public int search(int[] array, int key, SearchValue searchValue) throws Exception {
         long start = System.currentTimeMillis();
         int search = searchValue.search(array, key);
         System.out.printf("with %s top max: %s, execution time: %d%n", searchValue.getClass().getName(), search, System.currentTimeMillis() - start);
