@@ -6,7 +6,7 @@ import java.security.SecureRandom;
 public class RandomNumber {
 
     private final SecureRandom random;
-    private final  int capacity;
+    private final int capacity;
 
     public RandomNumber(int capacity) throws NoSuchAlgorithmException {
         this.capacity = capacity;

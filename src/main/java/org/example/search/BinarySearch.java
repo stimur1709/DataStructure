@@ -13,7 +13,7 @@ public class BinarySearch implements SearchValue {
                 return search;
             } else if (i > search) {
                 right = middle - 1;
-            } else  {
+            } else {
                 left = middle + 1;
             }
         }
