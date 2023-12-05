@@ -1,6 +1,5 @@
 package org.example.util;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -12,25 +11,25 @@ public class RandomArray {
 
     }
 
-    public static int[] randomInitArray(int capacity) throws NoSuchAlgorithmException {
-        RandomNumber random = new RandomNumber(capacity);
-        int[] array = new int[capacity];
-        for (int i = 0; i < capacity; i++) {
-            array[i] = random.nextInt();
-        }
-        return array;
-    }
-
-    public static List<Integer> randomInitList(int capacity) throws NoSuchAlgorithmException {
-        RandomNumber random = new RandomNumber(capacity);
+    public static int[] randomInitArray(int capacity) {
         return IntStream
                 .range(0, capacity)
-                .mapToObj(i -> random.nextInt())
+                .map(i -> RandomNumber.nextInt(capacity))
+                .toArray();
+    }
+
+    public static List<Integer> randomInitList(int capacity) {
+        return IntStream
+                .range(0, capacity)
+                .mapToObj(i -> RandomNumber.nextInt(capacity))
                 .collect(Collectors.toCollection(() -> new ArrayList<>(capacity)));
     }
 
-    public static int[] sortInitArray(int capacity) {
-        return IntStream.range(0, capacity).toArray();
+    public static Integer[] sortInitArray(int capacity) {
+        return IntStream
+                .range(0, capacity)
+                .boxed()
+                .toArray(Integer[]::new);
     }
 
 

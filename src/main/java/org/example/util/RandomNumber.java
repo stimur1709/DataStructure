@@ -1,19 +1,16 @@
 package org.example.util;
 
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-
 public class RandomNumber {
 
-    private final SecureRandom random;
-    private final int capacity;
+    private RandomNumber() {
 
-    public RandomNumber(int capacity) throws NoSuchAlgorithmException {
-        this.capacity = capacity;
-        this.random = SecureRandom.getInstanceStrong();
     }
 
-    public int nextInt() {
-        return random.nextInt(this.capacity) + 1;
+    public static int nextInt(int from, int before) {
+        return from + (int) (Math.random() * before);
+    }
+
+    public static int nextInt(int before) {
+        return nextInt(0, before);
     }
 }
